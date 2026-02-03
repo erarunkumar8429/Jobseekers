@@ -1,11 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 const App = () => {
   return (
     <div>
-      <h1>App Loaded ✅</h1>
+      <Home/>
+      {/* <h1>App Loaded ✅</h1>
 
       <nav>
         <Link to="/">Home</Link> |{" "}
@@ -15,7 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
