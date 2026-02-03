@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  background: #f7f9fc;
+}
+
+.stepper {
+  width: 25%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.stepper ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stepper li {
+  padding: 10px;
+  border-left: 4px solid #ddd;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.stepper li.active {
+  border-color: #2563eb;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.form-section {
+  width: 75%;
+  padding-left: 20px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.upload-box {
+  border: 2px dashed #cbd5e1;
+  padding: 20px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.upload-box button {
+  margin-top: 10px;
+  padding: 6px 12px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}

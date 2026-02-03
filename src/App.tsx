@@ -1,12 +1,17 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import BasicDetails from "./pages/BasicDetails";
+ 
 const App = () => {
   return (
     <div>
-      <Home/>
-      {/* <h1>App Loaded ✅</h1>
+     <h1>App Loaded ✅</h1>
+
+      <Header/> 
+      <h1>App Loaded ✅</h1>
 
       <nav>
         <Link to="/">Home</Link> |{" "}
@@ -16,7 +21,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-      </Routes> */}
+
+        <Route path="/BasicDetails" element={<BasicDetails />} />
+      </Routes>
+      <Footer/> 
     </div>
   );
 };
