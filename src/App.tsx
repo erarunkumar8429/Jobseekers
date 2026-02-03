@@ -8,6 +8,8 @@ import BasicDetails from "./pages/BasicDetails";
 const App = () => {
   return (
     <div>
+     <h1>App Loaded ✅</h1>
+
       <Header/> 
       <h1>App Loaded ✅</h1>
 
@@ -19,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/BasicDetails" element={<BasicDetails />} />
       </Routes>
       <Footer/> 
