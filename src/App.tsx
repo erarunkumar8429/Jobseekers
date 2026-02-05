@@ -8,16 +8,11 @@ import BasicDetails from "./pages/BasicDetails";
 const App = () => {
   return (
     <div>
-     <h1>App Loaded ✅</h1>
+     
 
       <Header/> 
-      <h1>App Loaded ✅</h1>
-
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/login">Login</Link>
-      </nav>
-
+  
+  
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
