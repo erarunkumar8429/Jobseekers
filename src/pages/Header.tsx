@@ -7,8 +7,19 @@ function Header() {
       <div className="logo">
         GovOne
       </div>
-
-      <nav className="nav">
+ 
+      {/* Center - Menu */}
+      <nav className="nav"> 
+         <Link to="/">Home</Link> |{" "}
+        <a href="#">
+          Products <span className="arrow">▾</span>
+        </a>
+        <a href="#">
+           <Link to="/SaveBasicInformation" className="signup">Add Information</Link> <span className="arrow">▾</span>
+        </a>
+        <a href="#">Pricing</a>
+      </nav>
+         <nav className="nav">
         <a href="#">Home</a>
         <a href="#">Govt Jobs</a>
         <a href="#">Exams</a>
@@ -17,9 +28,15 @@ function Header() {
         <a href="#">Schemes</a>
         <a href="#">Notifications</a>
         <a href="#">Contact</a>
-        <a href="#" className="btn btn-success">Login</a>
-        <a href="#">Register</a>
+         <Link to="/signup" className="btn btn-success">
+          Login
+      </Link>
+        <Link to="/signup" className="signup">
+          Sign up 
+      </Link>
       </nav>
+      <div> 
+    </div> 
     </header>
   );
 }

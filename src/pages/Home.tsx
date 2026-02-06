@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+
+import { useEffect, useState,useRef } from "react";
 import "./Home.css";
 
 import slide1 from "../assets/slider/gov5.png";
 import slide2 from "../assets/slider/gov2.png";
 import slide3 from "../assets/slider/gov3.jpg";
 import slide4 from "../assets/slider/gov4.png";
+import { Link } from "react-router-dom";
+const marquee = useRef<HTMLDivElement>(null);
+
 
 const slides = [slide1, slide2, slide3, slide4];
 
@@ -51,9 +55,10 @@ const Home = () => {
 
       {/* ================= FAST ALERT STRIP ================= */}
       <section className="alert-strip">
-        <marquee>
+        <div ref={marquee}>
+ 
           🔔 SSC CGL | 🔔 UP Police | 🔔 Railway Group D | 🔔 CTET | 🔔 UPSC Updates
-        </marquee>
+       </div>
       </section>
 
       {/* ================= VIDEO NEWS (AUTO PLAY) ================= */}
