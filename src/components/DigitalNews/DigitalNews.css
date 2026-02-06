@@ -1,0 +1,15 @@
+.digital-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.digital-card {
+  min-width: 280px;
+}
+
+.digital-card iframe {
+  width: 100%;
+  height: 170px;
+  border-radius: 12px;
+}
