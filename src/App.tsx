@@ -1,6 +1,6 @@
 import { Routes, Route ,Navigate} from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Login from "./pages/Login"; 
 import BasicDetails from "./pages/BasicDetails"; 
 import MainLayout from "./pages/DashboardLayout";
 import Signup from "./pages/signup";
@@ -9,7 +9,10 @@ import DashboardHome from "./Admin/DashboardHome";
 import JobEntryForm from "./Admin/JobEntryForm";
 import SaveBasicInformation from "./Admin/SaveBasicInformation";
 import Profile from "./Admin/Profile";
- 
+ import Header from "./pages/Header";
+import Footer from "./pages/Footer"; 
+ import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   return (
     <div>
@@ -33,9 +36,8 @@ const App = () => {
 
       {/* Unknown route */}
       <Route path="*" element={<Navigate to="/" />} />
-
-    </Routes>
-      
+   </Routes>
+ 
     </div>
   );
 };

@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      {/* Left - Logo */}
       <div className="logo">
-        <div className="logo-icon"></div>
-        <span>Untitled UI</span>
+        GovOne
       </div>
-
+ 
       {/* Center - Menu */}
       <nav className="nav"> 
          <Link to="/">Home</Link> |{" "}
@@ -21,16 +19,24 @@ function Header() {
         </a>
         <a href="#">Pricing</a>
       </nav>
-
-      {/* Right - Auth */}a
-       <div className="auth">
-      
-      {/* React Router Link */}
-      <Link to="/signup" className="signup">
+         <nav className="nav">
+        <a href="#">Home</a>
+        <a href="#">Govt Jobs</a>
+        <a href="#">Exams</a>
+        <a href="#">Admit Card</a>
+        <a href="#">Results</a>
+        <a href="#">Schemes</a>
+        <a href="#">Notifications</a>
+        <a href="#">Contact</a>
+         <Link to="/signup" className="btn btn-success">
+          Login
+      </Link>
+        <Link to="/signup" className="signup">
           Sign up 
       </Link>
-  <Link to="/Login" className="signup">Login</Link>  
-    </div>
+      </nav>
+      <div> 
+    </div> 
     </header>
   );
 }

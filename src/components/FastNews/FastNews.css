@@ -1,0 +1,8 @@
+.fast-news {
+  border-left: 3px solid #d32f2f;
+  padding-left: 10px;
+}
+
+.fast-news p {
+  font-size: 14px;
+}
