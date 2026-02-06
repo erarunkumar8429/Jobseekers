@@ -4,7 +4,8 @@ import Login from "./pages/Login";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import BasicDetails from "./pages/BasicDetails";
- 
+ import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   return (
     <div>

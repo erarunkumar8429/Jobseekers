@@ -4,35 +4,22 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      {/* Left - Logo */}
       <div className="logo">
-        <div className="logo-icon"></div>
-        <span>Untitled UI</span>
+        GovOne
       </div>
 
-      {/* Center - Menu */}
       <nav className="nav">
         <a href="#">Home</a>
-        <a href="#">
-          Products <span className="arrow">▾</span>
-        </a>
-        <a href="#">
-          Resources <span className="arrow">▾</span>
-        </a>
-        <a href="#">Pricing</a>
+        <a href="#">Govt Jobs</a>
+        <a href="#">Exams</a>
+        <a href="#">Admit Card</a>
+        <a href="#">Results</a>
+        <a href="#">Schemes</a>
+        <a href="#">Notifications</a>
+        <a href="#">Contact</a>
+        <a href="#" className="btn btn-success">Login</a>
+        <a href="#">Register</a>
       </nav>
-
-      {/* Right - Auth */}
-       <div className="auth">
-      <a href="#" className="login">Log in</a>
-
-      {/* React Router Link */}
-      <Link to="/BasicDetails" className="signup">
-          Sign up
-      </Link>
-
-      <button className="signup">Login </button>
-    </div>
     </header>
   );
 }

@@ -1,0 +1,24 @@
+.hero-slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-slide {
+  position: relative;
+}
+
+.hero-slide iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+}
+
+.hero-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+}

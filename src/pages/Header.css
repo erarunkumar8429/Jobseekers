@@ -30,10 +30,12 @@
   gap: 28px;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #374151;
-  font-size: 14px;
+.nav  a {
+    text-decoration: none;
+    color: #1f365b;
+    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .arrow {
