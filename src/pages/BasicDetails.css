@@ -48,7 +48,7 @@
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 .grid {
@@ -69,7 +69,12 @@ select {
   padding: 8px;
   margin-top: 5px;
 }
+label span{
+    color:red;
+    vertical-align: sub;
+}
 select,input {
+    margin: 0;
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 14px;
@@ -113,3 +118,67 @@ select:focus,input:focus {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.left-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.scroll-box {
+  height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: scrollUp 15s linear infinite;
+}
+
+.info-list:hover {
+  animation-play-state: paused;
+}
+
+.info-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+  border-radius: 4px;
+}
+
+.info-list strong {
+  display: block;
+  font-size: 14px;
+}
+
+.info-list span {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+h2{
+    margin: 0 0 15px;
+    color: #434274;
+    font-style: italic;
+    text-decoration: underline;
+}
+

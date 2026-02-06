@@ -1,149 +1,203 @@
 import React, { useState } from "react";
 import "./BasicDetails.css";
 
-const steps = [
-  "Vehicle Information",
-  "Owner / Registration Info",
-  "User & Insurance Info",
-  "Accessories & Service",
-  "Upload & Review",
-];
-
+ 
 const VehicleForm: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-
+ 
   return (
+     <form className="form-container" > 
+      {/* onSubmit={handleSubmit} */}
     <div className="container">
       {/* Left Stepper */}
-      <div className="stepper">
-        <h4>Step {currentStep + 1} of {steps.length}</h4>
-        <ul>
-          {steps.map((step, index) => (
-            <li
-              key={index}
-              className={index === currentStep ? "active" : ""}
-            >
-              {step}
-            </li>
-          ))}
+      <div className="left-card">
+      <h5 className="card-title">Important Information</h5>
+
+      <div className="scroll-box">
+        <ul className="info-list">
+          <li>
+            <strong>Vehicle Registration</strong>
+            <span>Ensure registration number is correct</span>
+          </li>
+
+          <li>
+            <strong>Engine Details</strong>
+            <span>Engine & chassis must match RC</span>
+          </li>
+
+          <li>
+            <strong>Manufacturing Year</strong>
+            <span>Select accurate month and year</span>
+          </li>
+
+          <li>
+            <strong>Purchase Amount</strong>
+            <span>Enter on-road purchase value</span>
+          </li>
+
+          <li>
+            <strong>Document Upload</strong>
+            <span>Upload clear vehicle image</span>
+          </li>
         </ul>
       </div>
+    </div>
 
       {/* Right Form */}
       <div className="form-section">
-        <h2>Vehicle Information</h2>
-        <p className="subtitle">
-          Group fields related to uniquely identifying the vehicle.
-        </p>
-
+         
         <div className="card">
+            <h2>Basic Details</h2>
           <div className="grid">
             <div>
-              <label>Registration Number *</label>
-              <input type="text" placeholder="Enter registration number" />
+               <label>Full Name<span> * </span></label>
+              <input type="text" placeholder="Full Name" />
             </div>
 
             <div>
-              <label>Engine Number *</label>
-              <input type="text" placeholder="Enter engine number" />
+              <label>Mobile Number (OTP Verification) <span>* </span></label>
+              <input type="text" placeholder="Mobile Number" />
             </div>
 
             <div>
-              <label>Chassis Number *</label>
-              <input type="text" placeholder="Enter chassis number" />
+                <label> <span> </span>.</label>
+                 <input type="button"value="OTP" />
+             
             </div>
-
-            <div className="upload-box">
-              <p>Upload Vehicle Picture</p>
-              <button>Browse files</button>
-            </div>
+ 
           </div>
-        </div>
+            <br></br>
+           <div className="grid">
+            <div>
+               <label>Date Of Birth<span> * </span></label>
+              <input type="text" placeholder="Full Name" />
+            </div>
 
-        <h3>Vehicle Classification</h3>
-        <div className="card">
+            <div>
+              <label> Gender <span>* </span></label>
+              <input type="text" placeholder="Mobile Number" />
+            </div>
+
+            <div>
+              <label>Email ID<span>* </span>  </label>
+              <input type="text" placeholder="Email ID" />
+            </div>
+ 
+            </div>
+        <br/>
+        <br/>
+            <h2>Location</h2>
           <div className="grid">
             <div>
-              <label>Class of Vehicle *</label>
-              <select>
-                <option>Select</option>
-              </select>
+               <label> State <span> * </span></label>
+              <input type="text" placeholder="Full Name" />
             </div>
 
             <div>
-              <label>Maker's Name *</label>
-              <select>
-                <option>Select</option>
-              </select>
+              <label>District <span>* </span></label>
+              <input type="text" placeholder="Mobile Number" />
             </div>
 
             <div>
-              <label>Model *</label>
-              <input type="text" />
+               <label>Area Type <span>* </span></label>
+                 <input type="button"value="OTP" />
+             
             </div>
-
-            <div>
-              <label>Fuel Type *</label>
-              <select>
-                <option>Select</option>
-              </select>
-            </div>
-
-            <div>
-              <label>Color of Vehicle *</label>
-              <select>
-                <option>Select</option>
-              </select>
-            </div>
+ 
           </div>
-        </div>
+            <br></br>
+           <div className="grid">
+            <div>
+               <label>City/Block<span> * </span></label>
+              <input type="text" placeholder="Full Name" />
+            </div>
 
-        <h3>Manufacturing Details</h3>
-        <div className="card">
+            <div>
+              <label> <span> </span>.</label>
+              <input type="text" placeholder="Mobile Number" />
+            </div>
+
+            <div>
+              <label>Email ID<span>* </span>  </label>
+              <input type="text" placeholder="Email ID" />
+            </div>
+ 
+            </div>
+      <br/>
+       <br/>
+        <br/>
+            <h2>Education</h2>
           <div className="grid">
             <div>
-              <label>Year of Manufacturing *</label>
-              <select>
-                <option>Select</option>
-              </select>
+               <label> Highest Qualification <span> * </span></label>
+              <input type="text" placeholder="Full Name" />
             </div>
 
             <div>
-              <label>Month *</label>
-              <select>
-                <option>Select</option>
-              </select>
+              <label>Stream Subject <span>* </span></label>
+              <input type="text" placeholder="Mobile Number" />
             </div>
 
             <div>
-              <label>Model Year *</label>
-              <input type="text" />
+               <label>Univercity / Board<span>* </span></label>
+                 <input type="button"value="OTP" />
+             
             </div>
+ 
           </div>
-        </div>
-
-        <h3>Purchase Information</h3>
-        <div className="card">
+            <br></br>
+           <div className="grid">
+            <div>
+               <label>Passing Year<span> * </span></label>
+              <input type="text" placeholder="Full Name" />
+            </div>
+ 
+ 
+            </div>
+      <br/>
+      
+ <br/>
+        <br/>
+            <h2>Job Preference </h2>
           <div className="grid">
             <div>
-              <label>Purchased Amount (On-road cost) *</label>
-              <input type="number" />
+               <label> Central / State / Both<span> * </span></label>
+              <input type="text" placeholder="Full Name" />
             </div>
 
             <div>
-              <label>Mode of Purchase *</label>
-              <select>
-                <option>Select</option>
-              </select>
+              <label>Department Intrested In <span>* </span></label>
+              <input type="text" placeholder="Mobile Number" />
             </div>
+
+            <div>
+               <label>Exam Type (SSC,Railway , UPSC, Police , Technical etc.)<span>* </span></label>
+                 <input type="button"value="OTP" />
+             
+            </div>
+ 
           </div>
-        </div>
+            <br></br>
+           <div className="grid">
+            <div>
+               <label>Category (Optional)<span>( Gen,OBC,SC,ST,PWD/EWS) </span></label>
+              <input type="text" placeholder="Full Name" />
+            </div>
+ 
+ <div>
+               <label>Language Preference <span>(Hindi/English) </span></label>
+              <input type="text" placeholder="Full Name" />
+            </div>
+            </div>
+      <br/>
+      
 
         <div className="actions">
-          <button className="next-btn">Next →</button>
+          <button className="next-btn">Save →</button>
         </div>
+          </div>
       </div>
     </div>
+    </form>
   );
 };
 

@@ -1,0 +1,26 @@
+/* Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(0) invert(1);
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Indicators */
+.carousel-indicators button {
+  width: 30px;
+  height: 3px;
+  opacity: 0.5;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: white;
+}
+
+/* Caption */
+.carousel-caption {
+  width: 70%;
+  color: white;
+  padding-bottom: 1.25rem;
+}

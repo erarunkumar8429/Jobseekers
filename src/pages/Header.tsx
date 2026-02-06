@@ -11,27 +11,25 @@ function Header() {
       </div>
 
       {/* Center - Menu */}
-      <nav className="nav">
-        <a href="#">Home</a>
+      <nav className="nav"> 
+         <Link to="/">Home</Link> |{" "}
         <a href="#">
           Products <span className="arrow">▾</span>
         </a>
         <a href="#">
-          Resources <span className="arrow">▾</span>
+           <Link to="/SaveBasicInformation" className="signup">Add Information</Link> <span className="arrow">▾</span>
         </a>
         <a href="#">Pricing</a>
       </nav>
 
-      {/* Right - Auth */}
+      {/* Right - Auth */}a
        <div className="auth">
-      <a href="#" className="login">Log in</a>
-
+      
       {/* React Router Link */}
-      <Link to="/BasicDetails" className="signup">
-          Sign up
+      <Link to="/signup" className="signup">
+          Sign up 
       </Link>
-
-      <button className="signup">Login </button>
+  <Link to="/Login" className="signup">Login</Link>  
     </div>
     </header>
   );
