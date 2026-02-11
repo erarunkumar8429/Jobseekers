@@ -1,44 +1,63 @@
-import "./Header.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
-function Header() {
+const Header: React.FC = () => {
   return (
-    <header className="header">
-      <div className="logo">
-        GovOne
+    <header className="gov-header shadow-sm">
+      <div className="header-wrapper">
+        
+        {/* LEFT: Branding */}
+        <div className="header-left">
+          <Link to="/" className="brand-link">
+            <i className="fa fa-university me-2 text-warning"></i>
+            <span>Gov<span className="gold-text">One</span></span>
+          </Link>
+        </div>
+
+        {/* CENTER: Navigation with Nested Menus */}
+        <nav className="header-center">
+          <ul className="nav-list">
+            <li><Link to="/">Home</Link></li>
+            
+            {/* Dropdown Item 1 */}
+            <li className="nav-dropdown">
+              <Link to="/jobs">
+                Govt Jobs <i className="fa fa-chevron-down ms-1 tiny-icon"></i>
+              </Link>
+              <ul className="sub-menu">
+                <li><Link to="/jobs/central">Central Govt Jobs</Link></li>
+                <li><Link to="/jobs/state">State Govt Jobs</Link></li>
+                <li><Link to="/jobs/railway">Railway Recruitment</Link></li>
+              </ul>
+            </li>
+
+            {/* Dropdown Item 2 */}
+            <li className="nav-dropdown">
+              <Link to="/exams">
+                Exams <i className="fa fa-chevron-down ms-1 tiny-icon"></i>
+              </Link>
+              <ul className="sub-menu">
+                <li><Link to="/exams/upsc">UPSC / SSC</Link></li>
+                <li><Link to="/exams/admit-card">Admit Cards</Link></li>
+                <li><Link to="/exams/results">Exam Results</Link></li>
+              </ul>
+            </li>
+
+            <li><Link to="/schemes">Schemes</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </nav>
+
+        {/* RIGHT: Auth Section */}
+        <div className="header-right">
+          <Link to="/login" className="btn-login">Login</Link>
+          <Link to="/signup" className="btn-signup-gov">Sign Up</Link>
+        </div>
+
       </div>
- 
-      {/* Center - Menu */}
-      <nav className="nav"> 
-         <Link to="/">Home</Link> |{" "}
-        <a href="#">
-          Products <span className="arrow">▾</span>
-        </a>
-        <a href="#">
-           <Link to="/SaveBasicInformation" className="signup">Add Information</Link> <span className="arrow">▾</span>
-        </a>
-        <a href="#">Pricing</a>
-      </nav>
-         <nav className="nav">
-        <a href="#">Home</a>
-        <a href="#">Govt Jobs</a>
-        <a href="#">Exams</a>
-        <a href="#">Admit Card</a>
-        <a href="#">Results</a>
-        <a href="#">Schemes</a>
-        <a href="#">Notifications</a>
-        <a href="#">Contact</a>
-         <Link to="/signup" className="btn btn-success">
-          Login
-      </Link>
-        <Link to="/signup" className="signup">
-          Sign up 
-      </Link>
-      </nav>
-      <div> 
-    </div> 
     </header>
   );
-}
+};
 
 export default Header;

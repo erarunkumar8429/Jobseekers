@@ -75,16 +75,16 @@ const GovSidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => 
       >
         <ul className="list-unstyled">
           <li className="mb-2">
-            <Link to="/dashboard" className={`gov-nav-link ${isActive('/dashboard') ? 'active' : ''}`}>
+            <Link to="/UserDashboard" className={`gov-nav-link ${isActive('/UserDashboard') ? 'active' : ''}`}>
               <i className="fa fa-tachometer-alt gov-icon"></i>
-              {!isCollapsed && <span className="ms-3 fw-bold">Executive Dashboard</span>}
+              {!isCollapsed && <span className="ms-3 fw-bold">User Dashboard</span>}
             </Link>
           </li>
 
           <li className="mb-2">
-            <Link to="AddNewJobForm" className={`gov-nav-link ${isActive('/dashboard/AddNewJobForm') ? 'active' : ''}`}>
+            <Link to="FillUserDetails" className={`gov-nav-link ${isActive('/UserDashboard/FillUserDetails') ? 'active' : ''}`}>
               <i className="fa fa-file-signature gov-icon"></i>
-              {!isCollapsed && <span className="ms-3 fw-bold">Add New Job</span>}
+              {!isCollapsed && <span className="ms-3 fw-bold">Fill Details</span>}
             </Link>
           </li>
 

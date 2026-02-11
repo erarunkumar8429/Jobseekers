@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import "./BasicDetails.css";
-
  
 const VehicleForm: React.FC = () => {
  

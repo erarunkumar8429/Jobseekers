@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
+import 'bootstrap-icons/font/bootstrap-icons.css'; // Ensure icons are linked
+import "./Common.css";
 interface HeaderProps {
   sidebarCollapsed: boolean;
 }
 
-const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
+const StylishAdminHeader: React.FC<HeaderProps> = ({ }) => {
   const [showProfile, setShowProfile] = useState(false);
   const [showNotify, setShowNotify] = useState(false);
 
-  // Define sidebar widths (match these to your Sidebar component)
-  const sidebarWidth = sidebarCollapsed ? '80px' : '260px';
-
   return (
     <nav 
-      className="navbar navbar-expand-lg fixed-top px-4 py-2" 
+      className="navbar navbar-expand-lg sticky-top px-4 py-2" 
       style={{ 
         background: 'rgba(255, 255, 255, 0.9)', 
         backdropFilter: 'blur(10px)', 
         borderBottom: '1px solid rgba(0,0,0,0.06)',
         zIndex: 1040,
-        // THE FIX: Move the header to the right and shrink it so it doesn't overlap sidebar
-        left: sidebarWidth,
-        width: `calc(100% - ${sidebarWidth})`,
+        // DYNAMIC WIDTH CALCULATION
+        //marginLeft: sidebarCollapsed ? '80px' : '260px',
+        width: '100%',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)' 
       }}
     >
       <div className="container-fluid">
         
-        {/* PAGE TITLE */}
+        {/* PAGE TITLE (Instead of Logo, since Logo is in Sidebar) */}
         <div className="d-flex align-items-center">
            <h5 className="mb-0 fw-bold text-dark">Dashboard</h5>
-           <span className="badge ms-3 d-none d-md-inline-block" style={{ backgroundColor: '#e7f1ff', color: '#0d6efd', fontSize: '0.7rem' }}>
+           <span className="badge bg-primary-soft text-primary ms-3 d-none d-md-inline-block" style={{ backgroundColor: '#e7f1ff', fontSize: '0.7rem' }}>
              PRO PLAN
            </span>
         </div>
@@ -42,7 +39,7 @@ const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
           {/* 1. NOTIFICATION DROPDOWN */}
           <div className="position-relative">
             <div 
-              className={`p-2 rounded-circle transition-all ${showNotify ? 'bg-primary text-white shadow' : 'bg-light text-secondary'}`}
+              className={`p-2 rounded-circle cursor-pointer transition-all ${showNotify ? 'bg-primary text-white shadow' : 'bg-light text-secondary'}`}
               onClick={() => { setShowNotify(!showNotify); setShowProfile(false); }}
               style={{ width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
             >
@@ -55,7 +52,7 @@ const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
                 <li><p className="dropdown-header fw-bold text-dark border-bottom mb-2 pb-2">Notifications</p></li>
                 <li>
                   <a className="dropdown-item rounded-3 py-2 d-flex align-items-center" href="#">
-                    <div className="p-2 rounded-circle me-3" style={{ background: '#e1f5fe' }}>
+                    <div className="bg-info-soft p-2 rounded-circle me-3" style={{ background: '#e1f5fe' }}>
                       <i className="bi bi-person-plus text-info"></i>
                     </div>
                     <div>
@@ -121,7 +118,7 @@ const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
       <style>{`
         .rotate-180 { transform: rotate(180deg); }
         .transition-all { transition: all 0.3s ease; }
-        .hover-shadow:hover { box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+        .hover-shadow:hover { shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
         .animate-fade-in {
           animation: fadeIn 0.2s ease-out;
         }
