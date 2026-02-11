@@ -1,36 +1,70 @@
 
-import { useEffect, useState,useRef } from "react";
+import { useEffect ,useRef} from "react";
 import "./Home.css";
-
-import slide1 from "../assets/slider/gov5.png";
-import slide2 from "../assets/slider/gov2.png";
-import slide3 from "../assets/slider/gov3.jpg";
-import slide4 from "../assets/slider/gov4.png";
-import { Link } from "react-router-dom";
-const marquee = useRef<HTMLDivElement>(null);
-
-
-const slides = [slide1, slide2, slide3, slide4];
+import { Carousel } from 'react-bootstrap';
+  
 
 const Home = () => {
-  const [current, setCurrent] = useState(0);
+  
+   const marquee = useRef<HTMLDivElement>(null);
+useEffect(() => {
+  const timer = setInterval(() => {
+    // future logic
+  }, 3000);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+  return () => clearInterval(timer);
+}, []);
+
 
   return (
     <>
       {/* ================= SLIDER ================= */}
-      <div className="slider">
-        <img src={slides[current]} alt="slider" />
-        <div className="slider-text">
-          <h1>Government Job Alert</h1>
-          <p>Sarkari Naukri | Rojgar Samachar</p>
-        </div>
+       <div className="custom-slider-wrapper shadow-lg mb-4">
+      <Carousel interval={3000} fade={false} indicators={true} controls={true}>
+        
+        {/* Slide 1 */}
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="/SiderImage/sider1.jpg"
+            alt="First slide"
+            style={{ height: "400px", objectFit: "cover" }}
+          />
+          <Carousel.Caption >
+            <h3 >Latest Government Jobs</h3>
+            <p>Verified notifications for Central & State departments.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        {/* Slide 2 */}
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="/SiderImage/sider2.jpg"
+            alt="Second slide"
+            style={{ height: "400px", objectFit: "cover" }}
+          />
+          <Carousel.Caption >
+            <h3 >Exam Results & Admit Cards</h3>
+            <p>Download hall tickets and check selection lists instantly.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        {/* Slide 3 */}
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="/SiderImage/sider3.jpg"
+            alt="Third slide"
+            style={{ height: "400px", objectFit: "cover" }}
+          />
+          <Carousel.Caption >
+            <h3 >Official Schemes 2026</h3>
+            <p>Explore all active welfare schemes and eligibility criteria.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+      </Carousel>
       </div>
 
       {/* ================= LATEST JOB ALERT (NEW UI) ================= */}

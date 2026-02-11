@@ -1,8 +1,8 @@
-import { useState } from "react";
+import  { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../Admin/Header";
-import Sidebar from "../Admin/Sidebar";
-import Footer from "../Admin/Footer";
+import Header from "../Users/Header";
+import Sidebar from "../Users/Sidebar";
+import Footer from "../Users/Footer";
 import "./Common.css";
 const DashboardLayout = () => {
   // Shared state to control the layout width
@@ -35,7 +35,7 @@ const DashboardLayout = () => {
           <Outlet /> 
         </main>
 
-        <Footer />
+        <Footer/>
       </div>
     </div>
   );

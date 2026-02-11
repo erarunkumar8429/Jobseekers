@@ -6,11 +6,14 @@ import MainLayout from "./pages/DashboardLayout";
 import Signup from "./pages/signup";
 import DashboardLayout from "./Admin/MainLayout";
 import DashboardHome from "./Admin/DashboardHome";
-import JobEntryForm from "./Admin/JobEntryForm";
-import SaveBasicInformation from "./Admin/SaveBasicInformation";
 import Profile from "./Admin/Profile";
- import Header from "./pages/Header";
-import Footer from "./pages/Footer"; 
+import AddNewJob from "./Admin/AddNewJob";
+
+
+import UserLayout from "./Users/MainLayout";
+import UserDashboard from "./Users/UserDashboard";
+import FillUserDetails from "./Users/FillUserDetails";
+
  import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -24,14 +27,20 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="BasicDetails" element={<BasicDetails />} />
-        <Route path="SaveBasicInformation" element={<SaveBasicInformation />} />
       </Route>
 
-      {/* Dashboard Pages (not default) */}
+      {/* Admin Dashboard Pages (not default) */}
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<DashboardHome />} />
-        <Route path="JobEntryForm" element={<JobEntryForm />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="AddNewJobForm" element={<AddNewJob />} />
+      </Route>
+      
+     {/* User Dashboard Pages (not default) */}
+      <Route path="/UserDashboard" element={<UserLayout />}>
+        <Route index element={<UserDashboard />} />
+        <Route path="FillUserDetails" element={<FillUserDetails />} />
+         
       </Route>
 
       {/* Unknown route */}
