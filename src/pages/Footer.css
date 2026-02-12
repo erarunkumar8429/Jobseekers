@@ -2,8 +2,7 @@
   background-color: #002651; /* Matches Header/Sidebar Navy */
   color: #ffffff;
   padding-top: 50px;
-  border-top: 4px solid #FFD700; /* Signature Gold Border */
-  margin-top: 50px; /* Space from the dashboard/form */
+  border-top: 4px solid #FFD700; /* Signature Gold Border */ 
 }
 
 .footer-container {

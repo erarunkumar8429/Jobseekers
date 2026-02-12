@@ -53,7 +53,7 @@ const AuthPage: React.FC = () => {
     <div 
       className="container-fluid vh-100 d-flex align-items-center justify-content-center"
        style={{
-        backgroundImage: "url('/images/photo_SignUp.jpg')",
+        backgroundImage: "url('/images/bg1.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -70,7 +70,7 @@ const AuthPage: React.FC = () => {
               <Carousel.Item key={num}>
                 <img 
                   className="d-block w-100" 
-                  src={`/SiderImage/sider${num}.jpg`} 
+                  src={`/SiderImage/img${num}.jpg`} 
                   alt={`Slide ${num}`} 
                   style={{ height: '420px', objectFit: 'cover', opacity: '0.7' }} 
                 />
