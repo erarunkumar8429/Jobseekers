@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import type { FormEvent } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -184,7 +185,9 @@ const SignUpPage: React.FC = () => {
 
           <div className="mt-3 text-center">
             <p className="small text-muted mb-0">
-              Already have an account? <a href="/login" className="text-dark fw-bold text-decoration-none">Login</a>
+              Already have an account? 
+               <Link to="/login" className="text-dark fw-bold text-decoration-none">Login</Link>
+             
             </p>
           </div>
         </div>
