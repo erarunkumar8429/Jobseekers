@@ -8,26 +8,21 @@ const AuthPage: React.FC = () => {
   const [otp, setOtp] = useState<string>('');
   const [isOtpSent, setIsOtpSent] = useState<boolean>(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-
-  // 1. Timer State (90 seconds)
   const [timeLeft, setTimeLeft] = useState<number>(90);
 
-  // 2. Timer Logic (Browser-friendly types)
+  // Timer Logic
   useEffect(() => {
     let timer: number | undefined;
-
     if (isOtpSent && timeLeft > 0) {
       timer = window.setInterval(() => {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
     }
-
     return () => {
       if (timer) window.clearInterval(timer);
     };
   }, [isOtpSent, timeLeft]);
 
-  // 3. Helper to format time (MM:SS)
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -38,14 +33,14 @@ const AuthPage: React.FC = () => {
     if (!captchaToken) return alert("Please verify the captcha first!");
     if (mobile.length < 10) return alert("Please enter a valid mobile number");
     
-    setTimeLeft(90); // Reset timer to 90s
+    setTimeLeft(90);
     setIsOtpSent(true);
   };
 
   const handleResendOtp = () => {
-    // Call your API here
     setTimeLeft(90);
     setOtp('');
+    // Logic for API call goes here
   };
 
   const handleVerifyAndLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,8 +50,18 @@ const AuthPage: React.FC = () => {
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="row shadow rounded-4 overflow-hidden bg-white" style={{ maxWidth: '760px', width: '100%', maxHeight: '420px' }}>
+    <div 
+      className="container-fluid vh-100 d-flex align-items-center justify-content-center"
+       style={{
+        backgroundImage: "url('/images/photo_SignUp.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div 
+        className="row shadow-lg rounded-4 overflow-hidden bg-white" 
+        style={{ maxWidth: '760px', width: '100%', maxHeight: '420px', border: '1px solid #dee2e6' }}
+      >
         
         {/* LEFT SIDE: Carousel */}
         <div className="col-md-6 d-none d-md-block p-0 bg-dark">
@@ -103,15 +108,17 @@ const AuthPage: React.FC = () => {
                   />
                 </div>
 
-                {/* Captcha with slight scaling to prevent height issues */}
-                <div className="mb-3 captcha-wrapper" style={{ transform: 'scale(0.9)', transformOrigin: 'left' }}>
-                  <ReCAPTCHA
-                    sitekey="6LesCWMsAAAAALEpeZrAjfG6hl76JAAjwDJ0Rvvk"
-                    onChange={(token) => setCaptchaToken(token)}
-                    size="compact"
-                  />
+                {/* Horizontal reCAPTCHA with scaling */}
+                <div className="mb-3 captcha-wrapper" style={{ width: '100%', overflow: 'hidden' }}>
+                  <div style={{ transform: 'scale(0.85)', transformOrigin: 'left top' }}>
+                    <ReCAPTCHA
+                      sitekey="6LdrSGgsAAAAAPEsSSog0ex8PgVFDRethLcH6dEJ"
+                      onChange={(token) => setCaptchaToken(token)}
+                      size="normal" 
+                    />
+                  </div>
                 </div>
-
+                                                                        
                 <button 
                   type="button" 
                   className="btn btn-primary btn-sm w-100 py-2 fw-bold" 
@@ -138,7 +145,6 @@ const AuthPage: React.FC = () => {
                   />
                 </div>
 
-                {/* Timer / Resend Section */}
                 <div className="text-center mb-3">
                   {timeLeft > 0 ? (
                     <small className="text-muted">

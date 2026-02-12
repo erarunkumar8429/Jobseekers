@@ -29,6 +29,8 @@ const Header: React.FC = () => {
                 <li><Link to="/jobs/central">Central Govt Jobs</Link></li>
                 <li><Link to="/jobs/state">State Govt Jobs</Link></li>
                 <li><Link to="/jobs/railway">Railway Recruitment</Link></li>
+                <li><Link to="/Dashboard">Admin Dashboard</Link></li>
+                <li><Link to="/UserDashboard">User Dashboard</Link></li>
               </ul>
             </li>
 
