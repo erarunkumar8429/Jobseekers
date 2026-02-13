@@ -1,19 +1,80 @@
-
-import { useEffect ,useRef} from "react";
+import { useEffect, useState,useRef } from "react";
 import "./Home.css";
 import { Carousel } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
   
+
+// const Home = () => {
+  
+//    const marquee = useRef<HTMLDivElement>(null);
+   
+// useEffect(() => {
+//   const timer = setInterval(() => {
+//     // future logic
+//   }, 3000);
+
+//   return () => clearInterval(timer);
+
+  
+// }, []);
+interface Video {
+  videoId: number;
+  title: string;
+  videoUrl: string;
+  category: string;
+}
+
 
 const Home = () => {
   
-   const marquee = useRef<HTMLDivElement>(null);
-useEffect(() => {
-  const timer = setInterval(() => {
-    // future logic
-  }, 3000);
+  const [current, setCurrent] = useState(0);
+const [videos, setVideos] = useState<Video[]>([]);
+const getYoutubeId = (url: string) => {
+  const regExp = /(?:v=|youtu\.be\/)([^&]+)/;
+  const match = url.match(regExp);
+  return match ? match[1] : "";
+};
+const getYoutubeIdshort = (url: string) => {
+  if (url.includes("watch?v=")) {
+    return url.split("watch?v=")[1].split("&")[0];
+  }
+  if (url.includes("shorts/")) {
+    return url.split("shorts/")[1].split("?")[0];
+  }
+  return "";
+};
 
-  return () => clearInterval(timer);
+
+
+ 
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrent((prev) => (prev + 1) % slides.length);
+  //   }, 3000);
+  //   return () => clearInterval(timer);
+  // }, []);
+useEffect(() => {
+  fetch("https://localhost:7107/api/Videos")   // apna port check karo
+    .then(res => res.json())
+    .then(data => {
+      // console.log("API Data:", data);
+      setVideos(data);
+    })
+    .catch(error => console.log("Error:", error));
 }, []);
+const [shorts, setShorts] = useState<any[]>([]);
+useEffect(() => {
+  fetch("https://localhost:7107/api/Shorts")
+    .then(res => res.json())
+    .then(data => {
+      console.log("Shorts Data 👉", data);
+      setShorts(data);
+    })
+    .catch(err => console.log("Shorts Error 👉", err));
+}, []);
+
+
 
 
   return (
@@ -89,52 +150,74 @@ useEffect(() => {
 
       {/* ================= FAST ALERT STRIP ================= */}
       <section className="alert-strip">
-        <div ref={marquee}>
+      <marquee>  <div >
  
           🔔 SSC CGL | 🔔 UP Police | 🔔 Railway Group D | 🔔 CTET | 🔔 UPSC Updates
        </div>
+       </marquee>
       </section>
 
       {/* ================= VIDEO NEWS (AUTO PLAY) ================= */}
       <section className="video-section">
-        <h2>Video News & Exam Updates</h2>
+  <h2>Video News & Exam Updates</h2>
 
-        <div className="video-grid">
-          {[1,2,3,4,5,6].map((i) => (
-            <div className="video-card" key={i}>
-              <video
-                src="https://www.w3schools.com/html/mov_bbb.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-              <div className="video-caption">
-                SSC • Railway • Police Exam Update
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="video-grid">
+    {videos.map((video) => {
+      const videoId = getYoutubeIdshort(video.videoUrl);
+
+      return (
+        <a
+          key={video.videoId}
+          href={video.videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="video-card"
+        >
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+            alt={video.title}
+          />
+
+          <div className="video-caption">
+            {video.title}
+          </div>
+        </a>
+      );
+    })}
+  </div>
+</section>
+
+
 
       {/* ================= SHORTS ================= */}
-      <section className="shorts-section">
-        <h2>Exam Shorts</h2>
+<section className="shorts-section">
+  <h2>Exam Shorts</h2>
 
-        <div className="short-video-row">
-          {[1,2,3,4,5,6,7,8].map((i) => (
-            <div className="short-video-card" key={i}>
-              <video
-                src="https://www.w3schools.com/html/movie.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </div>
-          ))}
+  <div className="short-video-row">
+    {shorts.map((short: any) => {
+      const videoId =
+        short.videoUrl.match(
+          /(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([^&?/]+)/
+        )?.[1];
+
+      if (!videoId) return null;
+
+      return (
+        <div className="short-video-card" key={short.videoId}>
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            width="200"
+            height="350"
+            title={short.title}
+            allowFullScreen
+          ></iframe>
         </div>
-      </section>
+      );
+    })}
+  </div>
+</section>
+
+
 
       {/* ================= LATEST NEWS ================= */}
       <section className="news-section">
