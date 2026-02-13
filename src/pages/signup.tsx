@@ -54,28 +54,34 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light"
+     style={{
+        backgroundImage: "url('/images/photo_SignUp.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="row shadow rounded-4 overflow-hidden bg-white" style={{ maxWidth: '760px', width: '100%', maxHeight: '450px' }}>
         
         {/* LEFT SIDE: Carousel */}
         <div className="col-md-6 d-none d-md-block p-0 bg-dark">
           <Carousel id="authCarousel" variant="light" interval={2000} pause={false} indicators={true}>
             <Carousel.Item>
-              <img className="d-block w-100" src="/SiderImage/sider1.jpg" alt="1" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
+              <img className="d-block w-100" src="/SiderImage/im1.jpg" alt="1" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
               <Carousel.Caption style={{ fontSize: '0.8rem' }}>
                 <h6 className="fw-bold">Join the Admin Portal</h6>
                 <p>Create an account to get started.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src="/SiderImage/sider2.jpg" alt="2" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
+              <img className="d-block w-100" src="/SiderImage/im2.jpg" alt="2" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
               <Carousel.Caption style={{ fontSize: '0.8rem' }}>
                 <h6 className="fw-bold">Seamless Management</h6>
                 <p>Everything you need in one place.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src="/SiderImage/sider3.jpg" alt="3" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
+              <img className="d-block w-100" src="/SiderImage/im3.jpg" alt="3" style={{ height: '450px', objectFit: 'cover', opacity: '0.6' }} />
               <Carousel.Caption style={{ fontSize: '0.8rem' }}>
                 <h6 className="fw-bold">Secure Access</h6>
                 <p>Your data is protected with us.</p>

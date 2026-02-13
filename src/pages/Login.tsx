@@ -57,13 +57,39 @@ const handleSendOtp = async () => {
 };
 
 
-  return (
-    <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="row shadow rounded-4 overflow-hidden bg-white" style={{ maxWidth: '760px', width: '100%', maxHeight: '420px' }}>
+  return ( 
+    <div 
+      className="container-fluid vh-100 d-flex align-items-center justify-content-center"
+       style={{
+        backgroundImage: "url('/images/bg1.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div 
+        className="row shadow-lg rounded-4 overflow-hidden bg-white" 
+        style={{ maxWidth: '760px', width: '100%', maxHeight: '420px', border: '1px solid #dee2e6' }}
+      > 
+     
         
         {/* LEFT SIDE: Carousel */}
         <div className="col-md-6 d-none d-md-block p-0 bg-dark">
           <Carousel id="adminCarousel" variant="light" interval={2000} pause={false} indicators={true}>
+
+            {[1, 2, 3].map((num) => (
+              <Carousel.Item key={num}>
+                <img 
+                  className="d-block w-100" 
+                  src={`/SiderImage/img${num}.jpg`} 
+                  alt={`Slide ${num}`} 
+                  style={{ height: '420px', objectFit: 'cover', opacity: '0.7' }} 
+                />
+                <Carousel.Caption style={{ fontSize: '0.8rem' }}>
+                  <h6 className="fw-bold">Secure Access</h6>
+                  <p>Verify your identity via OTP.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
             <Carousel.Item>
               <img className="d-block w-100" src="/SiderImage/sider3.jpg" alt="1" style={{ height: '420px', objectFit: 'cover', opacity: '0.7' }} />
               <Carousel.Caption style={{ fontSize: '0.8rem' }}>
