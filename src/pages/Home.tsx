@@ -150,11 +150,12 @@ useEffect(() => {
 
       {/* ================= FAST ALERT STRIP ================= */}
       <section className="alert-strip">
-      <marquee>  <div >
+
+       <div >
  
           🔔 SSC CGL | 🔔 UP Police | 🔔 Railway Group D | 🔔 CTET | 🔔 UPSC Updates
        </div>
-       </marquee>
+  
       </section>
 
       {/* ================= VIDEO NEWS (AUTO PLAY) ================= */}
