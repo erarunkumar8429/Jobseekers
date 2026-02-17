@@ -1,0 +1,135 @@
+.dashboard {
+  padding: 35px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.title {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* KPI */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  margin-bottom: 35px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+}
+
+.kpi-card h4 {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.kpi-card p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #0f172a;
+}
+
+/* MAIN CHART ROW */
+.main-chart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.chart-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+}
+
+.chart-card h4 {
+  margin-bottom: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.side-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mini-card {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+}
+
+.mini-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.mini-stat strong {
+  color: #0f172a;
+}
+
+/* SECOND ROW */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* ADMIN CONTROLS */
+.control-panel {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+}
+
+.control-panel h3 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.control-card {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 14px;
+  font-weight: 500;
+  color: #334155;
+  border-left: 4px solid #6366f1;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.control-card:hover {
+  background: #eef2ff;
+  transform: translateY(-4px);
+}

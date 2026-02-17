@@ -8,6 +8,7 @@ import DashboardLayout from "./Admin/MainLayout";
 import DashboardHome from "./Admin/DashboardHome";
 import Profile from "./Admin/Profile";
 import AddNewJob from "./Admin/AddNewJob";
+import SuperAdminDashboard from "./Admin/SuperAdminDashboard";
 
 
 import UserLayout from "./Users/MainLayout";
@@ -37,6 +38,7 @@ const App = () => {
         <Route index element={<DashboardHome />} />
         <Route path="profile" element={<Profile />} />
         <Route path="AddNewJobForm" element={<AddNewJob />} />
+        <Route path="SuperAdminDashboard" element={<SuperAdminDashboard />} />
         {/* <Route path="AdminJobForm" element={<AdminJobForm />} /> */}
       </Route>
       
