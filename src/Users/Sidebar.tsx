@@ -87,7 +87,12 @@ const GovSidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => 
               {!isCollapsed && <span className="ms-3 fw-bold">Fill Details</span>}
             </Link>
           </li>
-
+   <li className="mb-2">
+            <Link to="UserRegistration" className={`gov-nav-link ${isActive('/UserDashboard/UserRegistration') ? 'active' : ''}`}>
+              <i className="fa fa-file-signature gov-icon"></i>
+              {!isCollapsed && <span className="ms-3 fw-bold">Registration Details</span>}
+            </Link>
+          </li>
           {/* Example of many links - Personnel Dropdown */}
           <li className="mb-2">
             <div 
