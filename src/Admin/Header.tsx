@@ -1,14 +1,37 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useNavigate } from 'react-router-dom'; // 1. Import the hook
+
+import Swal from 'sweetalert2';
 
 interface HeaderProps {
   sidebarCollapsed: boolean;
 }
 
+
+
 const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
   const [showProfile, setShowProfile] = useState(false);
   const [showNotify, setShowNotify] = useState(false);
+
+const handleLogout = () => {
+  
+const navigate = useNavigate();
+  Swal.fire({
+    title: 'Logout?',
+    text: "You will need to login again to access your data.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    confirmButtonText: 'Yes, logout!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.removeItem('token');
+      navigate('/login');
+    }
+  });
+};
 
   // Define sidebar widths (match these to your Sidebar component)
   const sidebarWidth = sidebarCollapsed ? '80px' : '260px';
@@ -99,7 +122,7 @@ const StylishAdminHeader: React.FC<HeaderProps> = ({ sidebarCollapsed }) => {
                 <li><a className="dropdown-item rounded-3 py-2" href="#"><i className="bi bi-shield-check me-2 text-success"></i> Security</a></li>
                 <li><hr className="dropdown-divider opacity-50" /></li>
                 <li>
-                  <button className="dropdown-item rounded-3 py-2 text-danger fw-bold" onClick={() => alert('Logged Out')}>
+                  <button className="dropdown-item rounded-3 py-2 text-danger fw-bold" onClick={handleLogout}>
                     <i className="bi bi-box-arrow-right me-2"></i> Sign Out
                   </button>
                 </li>
