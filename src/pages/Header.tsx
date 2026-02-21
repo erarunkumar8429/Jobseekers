@@ -31,6 +31,8 @@ const Header: React.FC = () => {
                 <li><Link to="/jobs/railway">Railway Recruitment</Link></li>
                 <li><Link to="/Dashboard">Admin Dashboard</Link></li>
                 <li><Link to="/UserDashboard">User Dashboard</Link></li>
+                <li><Link to="/pages/EditorDashboard">Editor Dashboard</Link></li>
+                <li><Link to="/pages/DecisionAnalytics">DecisionAnalytics</Link></li>
               </ul>
             </li>
 

@@ -1,0 +1,96 @@
+================== DecisionAnalytics.css ======================= */
+.da-wrapper{
+  padding:24px;
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  min-height:100vh;
+  font-family:Inter,system-ui,Arial;
+}
+
+.da-title{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:22px;
+  color:#0f172a;
+}
+
+.da-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.da-card{
+  background:#fff;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+  transition:.25s;
+}
+.da-card:hover{transform:translateY(-6px)}
+
+.da-head{
+  font-weight:700;
+  margin-bottom:14px;
+  display:flex;
+  gap:6px;
+  align-items:center;
+  color:#0f172a;
+}
+
+.da-list{display:flex;flex-direction:column;gap:10px}
+.da-row{
+  display:flex;
+  justify-content:space-between;
+  background:#f8fafc;
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.badge{
+  padding:3px 8px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+}
+.badge.high{background:#dcfce7;color:#166534}
+.badge.medium{background:#fef3c7;color:#92400e}
+.badge.low{background:#fee2e2;color:#991b1b}
+
+.chip-wrap{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  background:#f1f5f9;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+}
+.chip.blue{background:#dbeafe;color:#1d4ed8}
+
+/* ctr */
+.ctr-box{text-align:center}
+.ctr-circle{
+  width:90px;height:90px;border-radius:50%;
+  margin:10px auto;
+  background:conic-gradient(#6366f1 18%, #e5e7eb 0);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:20px;color:#0f172a;
+}
+.muted{color:#64748b;font-size:13px}
+
+/* traffic */
+.traffic{display:flex;flex-direction:column;gap:12px}
+.traffic-row span{font-size:13px;font-weight:600}
+.bar{
+  width:100%;height:8px;background:#e5e7eb;border-radius:10px;margin-top:4px;
+}
+.bar div{
+  height:100%;background:linear-gradient(90deg,#6366f1,#06b6d4);
+  border-radius:10px;
+}
+
+@media(max-width:768px){
+  .da-title{font-size:22px}
+  .da-wrapper{padding:16px}
+}

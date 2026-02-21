@@ -1,144 +1,164 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// ======================= PublicDashboard.tsx =======================
+import { useState } from "react";
+import "./UserRegistration.css";
+import {
+  Bell,
+  Bookmark,
+  Calendar,
+  Globe,
+  User,
+  Briefcase
+} from "lucide-react";
 
-// Data based on your "Capture.PNG"
-const sourceData = [
-  { name: 'Social Media', value: 30, color: '#6f42c1' },
-  { name: 'Friends', value: 15, color: '#e83e8c' },
-  { name: 'Career Page', value: 25, color: '#fd7e14' },
-  { name: 'Newsletter', value: 10, color: '#20c997' },
-  { name: 'Others', value: 20, color: '#0dcaf0' },
-];
+const PublicDashboard = () => {
+  const [language, setLanguage] = useState("EN");
 
-const ProfileDashboard = () => {
+  // ===== data =====
+  const savedJobs = [
+    { id: 1, title: "Frontend Developer", company: "TechSoft" },
+    { id: 2, title: "React Developer", company: "CodeCraft" },
+    { id: 3, title: "UI Developer", company: "WebNova" }
+  ];
+
+  const appliedJobs = [
+    { id: 1, title: "Full Stack Developer", company: "InnovateX", status: "Under Review" },
+    { id: 2, title: "Angular Developer", company: "DevSpark", status: "Interview" }
+  ];
+
+  const notifications = [
+    "🔥 New Govt Job Posted",
+    "📢 Admit Card Released",
+    "🚀 Fresh Private Jobs Added",
+    "🆕 New Exam Calendar Added"
+  ];
+
   return (
-    <div className="container-fluid py-4" style={{ backgroundColor: '#f8f9fa' }}>
-      <div className="row g-4">
-        
-        {/* LEFT: APPLICANT SOURCE (Capture.PNG inspired) */}
-        <div className="col-lg-4">
-          <div className="card h-100 shadow-sm border-0 p-3">
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h6 className="fw-bold mb-0">Applicant Source Breakdown</h6>
-              <i className="bi bi-three-dots-vertical cursor-pointer"></i>
+    <div className="pd-wrapper">
+      {/* ===== top header ===== */}
+      <div className="pd-header">
+        <h2>User Dashboard</h2>
+
+        <div className="pd-right">
+          {/* language switch */}
+          <div className="lang-switch">
+            <Globe size={16} />
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+            >
+              <option value="EN">EN</option>
+              <option value="HI">HI</option>
+            </select>
+          </div>
+
+          {/* bell */}
+          <div className="bell">
+            <Bell size={18} />
+            <span>4</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== dashboard cards grid ===== */}
+      <div className="pd-grid">
+        {/* Profile Summary */}
+        <div className="card profile-card">
+          <div className="card-head">
+            <User size={18} /> Profile Summary
+          </div>
+
+          <div className="profile-box">
+            <div className="avatar">RD</div>
+            <div className="profile-info">
+              <h4>Ratna Dixit</h4>
+              <p>BTech CSE Student</p>
+
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "90%" }} />
+              </div>
+              <small>Profile Completion: 90%</small>
             </div>
-            <div style={{ width: '100%', height: 250 }}>
-              <ResponsiveContainer>
-                <PieChart>
-                  <Pie
-                    data={sourceData}
-                    innerRadius={60}
-                    outerRadius={80}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {sourceData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend verticalAlign="bottom" height={36}/>
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-            <button className="btn btn-outline-secondary btn-sm w-100 mt-3">Get full report</button>
           </div>
         </div>
 
-        {/* CENTER: SUCCESS SCORE (userdas.PNG inspired) */}
-        <div className="col-lg-4">
-          <div className="card h-100 shadow-sm border-0 p-4 text-center">
-             <div className="position-relative d-inline-block mx-auto mb-3" style={{ width: '120px' }}>
-                {/* Circular Progress Mockup */}
-                <div className="rounded-circle border border-5 d-flex align-items-center justify-content-center" 
-                     style={{ width: '120px', height: '120px', borderColor: '#6f42c1 !important', borderTopColor: '#e9ecef !important' }}>
-                   <h3 className="fw-bold mb-0">75%</h3>
+        {/* Saved Jobs */}
+        <div className="card">
+          <div className="card-head">
+            <Bookmark size={18} /> Saved Jobs
+          </div>
+
+          <div className="list">
+            {savedJobs.map((job) => (
+              <div className="list-row" key={job.id}>
+                <div>
+                  <strong>{job.title}</strong>
+                  <p>{job.company}</p>
                 </div>
-             </div>
-             <h5 className="fw-bold">Success Score</h5>
-             <p className="text-muted small">You're making progress! Update your profile or skills to increase your chances.</p>
-             <button className="btn btn-dark w-100 py-2 mt-2" style={{ backgroundColor: '#1a1a1a' }}>
-               Get Improvement Tips
-             </button>
-          </div>
-        </div>
-
-        {/* RIGHT: EXPERT ADVICE (userdas.PNG inspired) */}
-        <div className="col-lg-4">
-          <div className="card h-100 shadow-sm border-0 p-4 text-center">
-            <div className="d-flex justify-content-center mb-3">
-               <img src="https://i.pravatar.cc/150?u=1" className="rounded-circle border border-white shadow-sm mx-n2" width="50" alt="adv1" />
-               <img src="https://i.pravatar.cc/150?u=2" className="rounded-circle border border-white shadow-sm mx-n2" width="50" alt="adv2" />
-               <img src="https://i.pravatar.cc/150?u=3" className="rounded-circle border border-white shadow-sm mx-n2" width="50" alt="adv3" />
-            </div>
-            <h5 className="fw-bold">Expert Advice</h5>
-            <p className="text-muted small">Consult with our industry leaders to get a competitive edge in your career path.</p>
-            <button className="btn btn-dark w-100 py-2 mt-auto" style={{ backgroundColor: '#1a1a1a' }}>
-              Hire Now
-            </button>
-          </div>
-        </div>
-
-        {/* BOTTOM: JOB TABLE (Capture.PNG inspired) */}
-        <div className="col-12 mt-4">
-          <div className="card shadow-sm border-0 p-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-              <div>
-                <h5 className="fw-bold mb-0">Latest Job Upload</h5>
-                <small className="text-muted">Keep track of orders and their categories.</small>
+                <span className="pill blue">Saved</span>
               </div>
-              <div className="input-group w-25">
-                <span className="input-group-text bg-white border-end-0"><i className="fa fa-search text-muted"></i></span>
-                <input type="text" className="form-control border-start-0" placeholder="Search" />
+            ))}
+          </div>
+        </div>
+
+        {/* Applied Tracking */}
+        <div className="card">
+          <div className="card-head">
+            <Briefcase size={18} /> Applied Tracking
+          </div>
+
+          <div className="list">
+            {appliedJobs.map((job) => (
+              <div className="list-row" key={job.id}>
+                <div>
+                  <strong>{job.title}</strong>
+                  <p>{job.company}</p>
+                </div>
+                <span className="pill yellow">{job.status}</span>
               </div>
-            </div>
-            
-            <div className="table-responsive">
-              <table className="table table-hover align-middle">
-                <thead className="table-light">
-                  <tr className="small text-muted text-uppercase">
-                    <th><input type="checkbox" className="form-check-input" /></th>
-                    <th>Name of Jobs</th>
-                    <th>Type</th>
-                    <th>Salary</th>
-                    <th>Categories</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { title: 'Product Designer', company: 'AXA', type: 'Fulltime', salary: '$11K - $15K', color: 'success' },
-                    { title: 'UI/UX Designer', company: 'OVO', type: 'Contract', salary: '$11K - $15K', color: 'warning' },
-                    { title: 'Graphic Designer', company: 'Doku Wallet', type: 'Fulltime', salary: '$11K - $15K', color: 'success' },
-                  ].map((job, i) => (
-                    <tr key={i}>
-                      <td><input type="checkbox" className="form-check-input" /></td>
-                      <td>
-                        <div className="fw-bold">{job.title}</div>
-                        <div className="small text-muted">at {job.company}</div>
-                      </td>
-                      <td><span className={`badge bg-${job.color} bg-opacity-10 text-${job.color}`}>{job.type}</span></td>
-                      <td className="fw-bold">{job.salary}</td>
-                      <td>
-                        <span className="badge bg-light text-primary me-1">Tech Industries</span>
-                        <span className="badge bg-light text-primary me-1">Designer</span>
-                        <span className="badge bg-light text-primary">Junior</span>
-                      </td>
-                      <td>
-                        <i className="fa fa-trash text-muted me-3 cursor-pointer"></i>
-                        <i className="fa fa-edit text-muted cursor-pointer"></i>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            ))}
+          </div>
+        </div>
+
+        {/* Alerts Subscribed / Notifications */}
+        <div className="card">
+          <div className="card-head">
+            <Bell size={18} /> New Notifications
+          </div>
+
+          <div className="ticker">
+            <div className="ticker-track">
+              {notifications.concat(notifications).map((n, i) => (
+                <span key={i}>{n}</span>
+              ))}
             </div>
           </div>
         </div>
 
+        {/* Exam Calendar */}
+        <div className="card">
+          <div className="card-head">
+            <Calendar size={18} /> Exam Calendar
+          </div>
+
+          <div className="exam-list">
+            <div className="exam-item">
+              <span>UP Police</span>
+              <b>25 Mar 2026</b>
+            </div>
+            <div className="exam-item">
+              <span>SSC CGL</span>
+              <b>12 Apr 2026</b>
+            </div>
+            <div className="exam-item">
+              <span>Railway NTPC</span>
+              <b>05 May 2026</b>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProfileDashboard;
+export default PublicDashboard;
+
