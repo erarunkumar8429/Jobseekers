@@ -15,6 +15,8 @@ import UserLayout from "./Users/MainLayout";
 import UserDashboard from "./Users/UserDashboard";
 import FillUserDetails from "./Users/FillUserDetails";
 import UserRegistration from "./Users/UserRegistration";
+import EditorDashboard from "./pages/EditorDashboard";
+import DecisionAnalytics from "./pages/DecisionAnalytics";
 
 
  import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="signup" element={<Signup />} />
         <Route path="BasicDetails" element={<BasicDetails />} />
         <Route path="AddNewJob" element={<AddNewJob/>} />
+        <Route path="pages/EditorDashboard" element={<EditorDashboard/>} />
+        <Route path="pages/DecisionAnalytics" element={<DecisionAnalytics/>} />
       </Route>
 
       {/* Admin Dashboard Pages (not default) */}
